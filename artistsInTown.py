@@ -11,7 +11,7 @@ import spotipy.util as util
 import simplejson as json
 import bandsintown
 
-
+#Lets use the spotipy (spotify python API wrapper) to get my favorite artists!
 '''
 This part works to get the users top artists (short, medium and long term)
 
@@ -37,3 +37,27 @@ if token:
 else:
     print("Can't get token for", username)
 '''
+
+#Lets use the bandsintown API to find the bands in my town!
+bandsintown.app_id = "artistsInTown_python"
+
+def print_events(events):
+	for e in events:
+		print "%s %s (%s %s)" % (e.venue.name, e.datetime, e.venue.city, e.venue.country)
+		print "  %s" % (", ".join([a.name for a in e.artists]), )
+
+
+#artist = bandsintown.Artist.get(mbid="65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab")
+#print "Name: %s" % (artist.name, )
+
+#events = bandsintown.Artist.events(mbid="65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab")
+#print_events(events)
+
+events = bandsintown.Event.search(location="Cincinnati", per_page=10)
+print_events(events)
+
+#events = bandsintown.Event.recommended(mbids=["65f4f0c5-ef9e-490c-aee3-909e7ae6b2ab"], location="Cincinnati", per_page=10)
+#print_events(events)
+
+#events = bandsintown.Event.daily()
+#print_events(events)
