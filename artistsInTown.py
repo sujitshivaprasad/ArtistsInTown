@@ -1,7 +1,3 @@
-# export SPOTIPY_CLIENT_ID='1b06efc1ba9442d29cd627e3104b2647'
-# export SPOTIPY_CLIENT_SECRET='2b5b918bd415413e8b1b3470f29b7199'
-# export SPOTIPY_REDIRECT_URI='http://localhost:8888/callback'
-
 # shows artist info for a URN or URL
 import pprint
 import sys
